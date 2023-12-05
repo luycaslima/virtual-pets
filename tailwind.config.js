@@ -3,16 +3,26 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
-      colors:{
-        bgColor : '#F2F1EE',
-        borderColor:'#CAC6C1',
+      backgroundImage:{
+        'background-pattern' : "url('/pattern.svg')",
+        'menu-border-pattern' : "url('/border_pattern2.svg')"
       },
-      backgroundImage: {
-        'background-pattern': "url('/background-pattern.svg')",
+      colors:{
+        whiteSnow : '#FDFEFD',
+        borderColor:'#CAC6C1',
+        'moss': {
+          300: '#77C27A'
+        },
+        'wood': {
+          300:'#F3E8D7',
+          400:'#D0BFA5',
+          600:'#846639',
+          800:'#613F19',
+        }
+
       },
       fontFamily:{
-        "Roboto":["Roboto","sans-serif"],
-        "Tektur":["Tektur","sans-serif"]
+        "poppins":["Poppins","sans-serif"]
       }
     },
   },

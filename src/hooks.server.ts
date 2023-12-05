@@ -23,8 +23,8 @@ export const handle: Handle = async ({ event, resolve }) => {
         event.locals.authUser = undefined
     }
 
-    if (event.url.pathname.startsWith("/game")) {
-        if (!event.locals.authUser) throw redirect(303, "/")
+    if (event.url.pathname.startsWith("/game") && !authToken) {
+        if (!event.locals.authUser) throw redirect(303, "/login")
         if(event.url.pathname ==="/game")throw redirect(303, "/")
     }
 

@@ -16,8 +16,8 @@
  
 </script>
 
-
-<main class="relative">
+<!-- TODO FAZER UM LAZY LOAD TIPO E COMO QUADRO DE ANUNCIOS  https://animalcrossing.nintendo.com/ -->
+<main class="h-screen flex">
     <Navbar />
     <slot />
 </main>
