@@ -14,7 +14,7 @@
 
   <svelte:window bind:innerWidth={screenWidth} bind:innerHeight={screenHeight}/>
 
-<main class="relative m-auto">
+<main class="relative mx-auto mt-auto">
     <slot />
     {#if isMounted}
       <Canvas view={canvas} screenHeight={screenHeight} screenWidth={screenWidth}/>

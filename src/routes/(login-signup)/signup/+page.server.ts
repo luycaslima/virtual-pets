@@ -1,13 +1,14 @@
 import { redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
+import { PRIVATE_SERVER_URL } from "$env/static/private";
 
-export const load  : PageServerLoad= async ({cookies}) => {
-    // const sessionId = cookies.get("jwt");
-    // //redirects to the main page
-    // if (sessionId){
-    //     throw redirect(301,"/game/vivarium")
-    // }
-}
+// export const load  : PageServerLoad= async ({cookies}) => {
+//     // const sessionId = cookies.get("jwt");
+//     // //redirects to the main page
+//     // if (sessionId){
+//     //     throw redirect(301,"/game/vivarium")
+//     // }
+// }
 
 
 export const actions = {
@@ -20,7 +21,7 @@ export const actions = {
 
         const body = JSON.stringify({username,password,email,name})
         
-        const res = await fetch(`http://localhost:8080/api/users/register`, {
+        const res = await fetch(`${PRIVATE_SERVER_URL}/users/register`, {
             body,
             method: "POST",
             headers :{"content-type":"application/json"},

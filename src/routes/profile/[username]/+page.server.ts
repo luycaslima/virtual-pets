@@ -1,6 +1,6 @@
-import type { SecuredUserData, UserData } from "$lib/types/user";
+import type { SecuredUserData, UserData } from "$lib/types/models";
 import type { PageServerLoad } from "./$types";
-
+import {PRIVATE_SERVER_URL} from '$env/static/private'
  
 //TODO tudo que for sigiloso da api passar pelo server tudo q n for passar pela pagiaa normal
 
@@ -8,13 +8,21 @@ import type { PageServerLoad } from "./$types";
 export const load :PageServerLoad = ({fetch, params}) => {
     
     const fetchUser = async (username :string) : Promise<SecuredUserData> =>{
-        const response : Response = await fetch(`http://localhost:8080/api/users/${username}`)
-        const data = (await response.json())
-        
-        const { user } = data.data
-        const {password , id , ...securedUser} = user //omit the password and id
+         const response : Response = await fetch(`${PRIVATE_SERVER_URL}/users/${username}`,{
+            method:'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+         })
 
-        return securedUser as SecuredUserData
+         //console.log(response)
+
+         const data = (await response.json())
+        
+         const { user } = data.data
+         const {password , id , ...securedUser} = user //omit the password and id
+
+         return securedUser as SecuredUserData
     }
     
     return {

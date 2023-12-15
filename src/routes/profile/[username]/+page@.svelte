@@ -9,7 +9,6 @@
 </script>
 
 <!-- TODO when enter in a profile that dont exist, show a page NOTFOUND -->
-<div class="mt-24">
+<div class="m-auto">
     <h1>Usuario: {user.username}</h1>
-    <h2>Email: {user.email}</h2>
 </div>

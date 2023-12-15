@@ -1,5 +1,5 @@
 
-import type { SecuredUserData } from "$lib/types/user";
+import type { SecuredUserData } from "$lib/types/models";
 import { writable, type Writable} from "svelte/store";
 
 

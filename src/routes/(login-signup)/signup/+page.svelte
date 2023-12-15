@@ -4,42 +4,37 @@
 </script>
 
 
-<div class="m-auto p-2 max-w-md text-center bg-wood-300 rounded-lg">
-  <div class="p-16 border-solid border-2 border-wood-400 flex flex-col items-center">
-    <h1 class="text-2xl p-4">Sign up:</h1>
+<section class="m-auto p-2 max-w-md text-center bg-wood-300 rounded-lg">
+  <main class="px-16 py-12 border-solid border-2 border-wood-400 flex flex-col items-center ">
+    <header class="mb-4" >
+      <h1 class="text-3xl text-wood-800 ">Sign up:</h1>
+    </header>
 
     <form method="POST" class="flex flex-col items-center text-left gap-4 ">
-      <div class="">
+      <div class="flex flex-col gap-6">
         <label for="username">
           <span>Username:</span>
-          <input type="text" name="username" />
+          <input class="focus:outline-none border-b-[3px] bg-transparent border-wood-800" type="text" name="username" />
         </label>
-      </div>
 
-      <div class="">
         <label for="password">
           <span>Password:</span>
-          <input type="password" name="password" />
+          <input class="focus:outline-none border-b-[3px] bg-transparent border-wood-800" type="password" name="password" />
         </label>
-      </div>
-      
-      <div class="">
+
         <label for="email">
           <span>Email:</span>
-          <input type="email" name="email" />
+          <input class="focus:outline-none border-b-[3px] bg-transparent border-wood-800" type="email" name="email" />
         </label>
-      </div>
 
-      <div class="">
         <label for="name">
           <span>Name: </span>
-          <input type="text" name="name" />
+          <input class="focus:outline-none border-b-[3px] bg-transparent border-wood-800" type="text" name="name" />
         </label>
-      </div>
 
-      <button class="bg-slate-100 rounded-lg w-2/3 mx-auto my-4"> Sign Up</button>
+        <button class="bg-[#5BC893] rounded-md w-2/3 mx-auto h-9 font-semibold my-6"> Sign Up</button>
     </form>
 
-  </div>
+  <main/>
   
-</div>
+</section>

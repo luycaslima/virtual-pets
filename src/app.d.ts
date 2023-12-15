@@ -9,6 +9,10 @@ declare global {
 		interface Locals{
 			authUser: SecuredUserData | undefined
 		}
+		interface Error {
+			message: string;
+			errorId: string;
+		}
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
