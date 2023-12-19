@@ -1,5 +1,5 @@
 import { dev } from "$app/environment"
-import { PRIVATE_LOCAL_SERVER_URL, PRIVATE_SERVER_URL } from "$env/static/private"
+import { env } from "$env/dynamic/private"
 
-export const url = dev ?  PRIVATE_LOCAL_SERVER_URL : PRIVATE_SERVER_URL  
+export const url = dev ?  env.PRIVATE_LOCAL_SERVER_URL : env.PRIVATE_SERVER_URL  
 //console.log(url)
