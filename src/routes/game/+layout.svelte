@@ -16,7 +16,8 @@
 
 <main class="relative m-auto">
     <slot />
-    {#if isMounted}
+    <!-- TODO better loading of the canvas -->
+    <!-- {#if isMounted}
       <Canvas view={canvas} screenHeight={screenHeight} screenWidth={screenWidth}/>
-    {/if}
+    {/if} -->
 </main>
