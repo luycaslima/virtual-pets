@@ -12,10 +12,9 @@
     selectedPet = data.species[index]
   }
 
-  $: species = data.species as Array<Specie>
+  $ : species = data.species as Array<Specie>
   $ : specieId = selectedPet.id
-    //$: console.log(selectedPet)
-  //$: console.log(species)
+
 </script>
 
 <section class="mx-auto mt-auto mb-16">

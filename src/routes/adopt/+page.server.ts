@@ -1,17 +1,15 @@
-import type { Specie } from '$lib/types/models';
+import { url } from '$lib/server/url';
 import type { PageServerLoad } from './$types';
 
 
-
 export const load : PageServerLoad = async ({fetch })=>{
-    const res = await fetch(`http://localhost:8080/api/species`)
+    const res = await fetch(`${url}/species`)
     const data = await res.json()
 
     const species = data.data.data
     return {species: species}
 }
 
-//TODO implement https://joyofcode.xyz/sveltekit-environment-variables
 export const actions ={
     default: async({request,fetch,cookies}) =>{
         const formData = await request.formData()
@@ -21,7 +19,7 @@ export const actions ={
         
         const cookie = cookies.get('jwt')
 
-        let res = await fetch(`http://localhost:8080/api/pets`, {
+        let res = await fetch(`${url}/pets`, {
             method: 'POST',
             body,
             credentials: "include",
@@ -32,16 +30,26 @@ export const actions ={
         })
 
         if(res.ok){
-            console.log(res.body)
-            //const petID = 
-            //res = await fetch(`http://localhost:8080//api/users/pet/{petID}`)
+         
+            const data = await res.json()
+            const petID =  data.data.data 
+            let petRes = await fetch(`${url}/users/pet/${petID}`,{
+                method: 'PUT',
+                credentials:'include',
+                headers:{
+                    "content-type": "application/json",
+                    cookie: `jwt=${cookie}`
+                }
+            })
 
-
+            if(petRes.ok){
+                const result = await petRes.json()
+                console.log(result.data.data)
+            }else{
+                //TODO treat errors and return success
+            }
         }else{
             console.log(res)
         }
-
-        
-        //TODO call to create a pet , wait the id comeback or treat error , after call to link to player and repeat
     }
 }

@@ -7,8 +7,7 @@
     let currentPath : string;
     
     $: authUser = $user
-
-    //$:console.log(authUser?.username)
+    //$:console.log(authUser)
     //const test = getContext('user')
     $ : currentPath = $page.url.pathname  
 
@@ -51,9 +50,9 @@
         </div>
                 
             <div data-sveltekit-preload-data="off" class="items-center flex gap-4 font-tektur text-xl">
-                <div class="bg-wood-300 p-2 rounded-lg flex gap-1 items-center drop-shadow-md">
+                <div class="bg-wood-300 py-2 px-4 rounded-lg flex gap-2 items-center drop-shadow-md">
                     <Coin size={24} weight='fill' class="fill-wood-800" />
-                    <h3 class="font-bold text-xl">1500 $</h3> 
+                    <h3 class="font-bold text-xl">{authUser.money} $</h3> 
                 </div>
                 <!-- <a href="/profile/current-logged-user">Profile</a> -->
                 <a href="/logout"><SignOut weight='regular' size={32}/></a>

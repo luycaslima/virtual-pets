@@ -17,4 +17,4 @@
 
 <svelte:window on:resize={ () => {Game.resizeHandler(screenWidth,screenHeight)} } />
 
-<canvas class="my-16 mx-auto" bind:this={view} />
+<canvas bind:this={view} />
