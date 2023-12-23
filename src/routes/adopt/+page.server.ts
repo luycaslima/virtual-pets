@@ -1,10 +1,25 @@
 import { url } from '$lib/server/url';
+import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 
-export const load : PageServerLoad = async ({fetch })=>{
-    const res = await fetch(`${url}/species`)
+export const load : PageServerLoad = async ({fetch ,setHeaders})=>{
+    const res = await fetch(`${url}/species`,{
+        method:'GET',
+        credentials:'include'
+    })
     const data = await res.json()
+
+    const cacheControl = res.headers.get("cache-control")
+
+    //TODO set cache control in all GETTERS
+    if(cacheControl && res.ok){
+        setHeaders({'cache-control': cacheControl})
+    }
+
+    if(!res.ok){
+        throw error(res.status)
+    }
 
     const species = data.data.data
     return {species: species}

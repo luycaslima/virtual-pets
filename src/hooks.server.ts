@@ -38,9 +38,13 @@ export const handle: Handle = async ({ event, resolve }) => {
                 })
                 
         //TODO update this after
-        const data = await res.json()
-        const authUser  = data.data.data //TODO bether treat this data because jesus
-        event.locals.authUser = authUser as SecuredUserData    
+        if(res.ok){
+            const data = await res.json()
+            const authUser  = data.data.data //TODO bether treat this data because jesus
+            event.locals.authUser = authUser as SecuredUserData     
+        }else {
+            throw redirect(303,"/")
+        }
         //console.log(data.data.data)
     }
 

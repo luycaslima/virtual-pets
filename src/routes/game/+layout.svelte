@@ -1,6 +1,6 @@
 <script lang="ts">    
     import { onMount } from "svelte"; 
-    import Canvas from "$lib/components/Canvas.svelte"
+    //import Canvas from "$lib/components/Canvas.svelte"
    
    let screenWidth : number;
    let screenHeight : number;

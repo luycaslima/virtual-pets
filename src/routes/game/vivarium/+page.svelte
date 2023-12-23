@@ -1,15 +1,13 @@
 <script  lang="ts">
-  import Game from "$lib/core/game";
+  import type { PageServerData } from "./$types";
+  import { user } from "../../../stores";
 
-  import { getContext, onMount } from "svelte";
-  import type { SecuredUserData } from "$lib/types/models";
-  import type { PageData } from "./$types";
-
-  export let data : PageData
+  //export let data : PageServerData
   //Each scene has only one function, is justo to SHOW the calculations happens outside and when a event pass to the canvas what to do
   //have one object with $ to update as soon one value of the object changes
-  let authUser : SecuredUserData | undefined = getContext('user')
-  //$ : authUser = get(user)
+  //$:  authUser = $user
+  //$: console.log(authUser)
+
   //console.log(authUser)
   // const Pet : IPet = {
   //   petName :'Vevete',
@@ -29,7 +27,7 @@
   //   } as StatusComponent
   // } as IPet;
 
-  onMount( () => {Game.changeScene();})
+  //onMount( () => {Game.changeScene();})
   
 </script>
 
